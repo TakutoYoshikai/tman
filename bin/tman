@@ -1,10 +1,18 @@
 #!/bin/bash
 
 if [ "`uname`" = "Darwin" ]; then
+  if [ "$1" = "" ]; then
+    open https://github.com/TakutoYoshikai/`basename $PWD`
+    exit
+  fi
   open https://github.com/TakutoYoshikai/$1
   exit
 fi
 if [ "`command -v xdg-open`" != "" ]; then
+  if [ "$1" = "" ]; then
+    xdg-open https://github.com/TakutoYoshikai/`basename $PWD`
+    exit
+  fi
   xdg-open https://github.com/TakutoYoshikai/$1 
   exit
 fi
