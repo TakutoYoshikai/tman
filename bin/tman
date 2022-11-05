@@ -5,12 +5,20 @@ if [ "`uname`" = "Darwin" ]; then
     open https://github.com/TakutoYoshikai/`basename $PWD`
     exit
   fi
+  if [ "$1" = "-me" ]; then
+    open https://github.com/TakutoYoshikai
+    exit
+  fi
   open https://github.com/TakutoYoshikai/$1
   exit
 fi
 if [ "`command -v xdg-open`" != "" ]; then
   if [ "$1" = "" ]; then
     xdg-open https://github.com/TakutoYoshikai/`basename $PWD`
+    exit
+  fi
+  if [ "$1" = "-me" ]; then
+    xdg-open https://github.com/TakutoYoshikai
     exit
   fi
   xdg-open https://github.com/TakutoYoshikai/$1 
